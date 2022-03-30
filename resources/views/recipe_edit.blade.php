@@ -19,7 +19,6 @@
             <span class="alert" style="color: red"><strong>{{$message}}</strong></span>
             @enderror
         </div>
-
         <div class="col-md-10">
             <label for="name">Image Text</label>
             <textarea class="form-control" name="image_text" id="image_text" cols="50" rows="10">{{$recipe->image_text}}</textarea>
