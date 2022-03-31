@@ -83,6 +83,27 @@ class RecipeController extends Controller
             }
 
             $recipe->entropy = $entropy;
+
+            if($length != 0 && $entropy != 0){
+
+            //length/entropy
+
+            $len_entro = $length/$entropy;
+            $recipe->len_entro = $len_entro;
+            //Entropy/length
+
+            $entro_len = $entropy/$length;
+            // dd($entro_len);
+            $recipe->entro_len = $entro_len;
+            }
+
+            else
+            {
+
+            $recipe->len_entro = 0;
+            $recipe->entro_len = 0;
+
+            }
         }
         $recipe->name = $input['name'];
         $recipe->save();

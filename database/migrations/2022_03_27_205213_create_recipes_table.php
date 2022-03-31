@@ -18,7 +18,9 @@ class CreateRecipesTable extends Migration
             $table->string('name');
             $table->text('image')->nullable();
             $table->text('image_text')->nullable();
-            $table->integer('length')->nullable();
+            $table->double('length')->nullable();
+            $table->integer('len_entro')->nullable();
+            $table->double('entro_len' , 8);
             $table->text('entropy')->nullable();
             $table->timestamps();
         });

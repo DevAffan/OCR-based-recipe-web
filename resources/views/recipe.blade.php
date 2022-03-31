@@ -23,10 +23,12 @@
             <th>Name</th>
             <th>Image</th>
             <th>Text</th>
-            <th>Length</th>
-            <th onclick="sortTable(5)">Entropy<span style="margin-left: 50px"><i class="fa fa-sort" aria-hidden="true"></i></span></th>
-            <th>Created At</th>
-            <th>Updated At</th>
+            <th onclick="sortTable(0)">Length</th>
+            <th onclick="sortTable(1)">Length/entropy</th>
+            <th onclick="sortTable(2)">Entropy/Length</th>
+            <th onclick="sortTable(3)">Entropy<span style="margin-left: 50px"><i class="fa fa-sort" aria-hidden="true"></i></span></th>
+            {{-- <th>Created At</th> --}}
+            {{-- <th>Updated At</th> --}}
             <th >Edit</th>
             <th>Delete</th>
         </tr>
@@ -52,11 +54,13 @@
                 <td>{{$recipe->id}}</td>
                 <td>{{$recipe->name}}</td>
                 <td><img width="100px" src="{{$recipe->image}}" alt=""></td>
-                <td ><a style="text-decoration: none" href="{{route('recipe.show' , $recipe->id)}}">{{ Str::limit($recipe->image_text, 50) }}</a></td>
+                <td ><a style="text-decoration: none" href="{{route('recipe.show' , $recipe->id)}}">{{ Str::limit($recipe->image_text, 20) }}</a></td>
                 <td>{{$recipe->length}}</td>
+                <td>{{$recipe->len_entro}}</td>
+                <td>{{$recipe->entro_len}}</td>
                 <td>{{$recipe->entropy}}</td>
-                <td>{{$recipe->created_at->diffForHumans()}}</td>
-                <td>{{$recipe->updated_at->diffForHumans()}}</td>
+                {{-- <td>{{$recipe->created_at->diffForHumans()}}</td> --}}
+                {{-- <td>{{$recipe->updated_at->diffForHumans()}}</td> --}}
                 <td>
                     <a href="{{route('recipe.edit' , $recipe->id)}}"><Button class="btn btn-primary">Edit</Button></a>
                 </td>
