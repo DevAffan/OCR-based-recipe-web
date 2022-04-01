@@ -20,13 +20,16 @@ Route::get('/', function () {
 
 
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::resource('/recipe' , RecipeController::class);
 Route::get('/search' , [RecipeController::class , 'search']);
+Route::get('/sort' , [RecipeController::class , 'sort']);
+
+// Route::delete('/delete' , [RecipeController::class , 'destroy']);
 
 // Route::get('/image' , function(){
 //     return view('lara_ocr.upload_image');
